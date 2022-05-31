@@ -2,16 +2,30 @@
 <html>
 
 <head>
-    <title>ã‚«ãƒ¬ãƒ¼ãƒªã‚¶ãƒ«ãƒˆ</title>
+    <title>ƒJƒŒ[ƒŠƒUƒ‹ƒg</title>
     <script>
-        
+        window.onload = function() {
+            // URL‚ğæ“¾
+            const url = new URL(window.location.href);
 
+            // URLSearchParamsƒIƒuƒWƒFƒNƒg‚ğæ“¾
+            const params =  url.searchParams;
+
+            // console‚Éó‚¯æ‚Á‚½ƒpƒ‰ƒ[ƒ^‚ğo—Í
+            console.log(params);
+
+            // ƒpƒ‰ƒ[ƒ^‚©‚çuusernamev‚ğæ“¾
+            const username = params.get("aaa");
+
+
+            // ID‚ğg‚Á‚Äspan—v‘f‚ğæ“¾‚·‚é
+            const span = document.getElementById("receivedName");
+            // æ“¾‚µ‚½span—v‘f‚Éó‚¯æ‚Á‚½ƒpƒ‰ƒ[ƒ^‚ğ‘ã“ü
+            span.innerText = username;
+        }
     </script>
 </head>
-
 <body>
-    <p></p>
-    
+    ‚±‚ñ‚É‚¿‚ÍA <span id="receivedName"></span> ‚³‚ñI
 </body>
-
 </html>

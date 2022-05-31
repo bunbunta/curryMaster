@@ -51,7 +51,7 @@
 
         function guzai() {
             var guzai_res = document.getElementById("guzai_res");
-            var guzai_n=document.getElementById("guzai").value;
+            var guzai_n = document.getElementById("guzai").value;
             guzai_res.innerHTML = guzai_n;
 
         }
@@ -68,6 +68,7 @@
 </head>
 
 <body>
+    <form action="./curry_result.html" method="GET">
     <div name="きのみ">
         オレンの実(あまい)
         <select id="0">
@@ -110,28 +111,30 @@
     <br><br>
     <div name="具材">
         具材を選んでね！
-        <select id="guzai">
+        <select id="guzai" name="aaa">
             <option value="肉盛り">肉</option>
             <option value="フィッシュ">魚</option>
             <option value="たっぷり野菜">野菜</option>
-            <option value="ごろごろ豆">豆</option>
+            <option value="mame">豆</option>
         </select>
     </div>
     <br><br>
 
     <div name="まごころ">
-        <form>
+
             <input type="button" value="まごころ" onclick="m()">
             <input type="button" value="カレーを作る！" onclick="result()">
-            <!-- <input type="submit" formaction="./curry_result.html"> -->
-        </form>
+            <input type="submit" >
+
     </div>
+</form>
 
     <div name="結果">
         <p id="kinomi_res">きのみの味</p>
         <p id="guzai_res">具材</p>
-        <p id="k"> 回数表示</p>
+        <p id="k"> まごころ回数表示</p>
         <p id="res">結果表示</p>
+
 
     </div>
 </body>
