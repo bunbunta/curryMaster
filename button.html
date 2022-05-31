@@ -25,6 +25,7 @@
                 res.innerHTML = "めっちゃうまい";
             }
             kinomi();
+            guzai();
         }
 
         function kinomi() {
@@ -35,7 +36,7 @@
             var nazo = document.getElementById("3");
             var max = oren.value;
             var max_id = oren.id;
-            
+
             if (max < obon.value) {
                 max_id = obon.id;
             }
@@ -48,8 +49,11 @@
             kinomi_res.innerHTML = kinomiData[max_id][1];
         }
 
-        function guzai(){
-            
+        function guzai() {
+            var guzai_res = document.getElementById("guzai_res");
+            var guzai_n=document.getElementById("guzai").value;
+            guzai_res.innerHTML = guzai_n;
+
         }
 
         function m() {
@@ -106,7 +110,7 @@
     <br><br>
     <div name="具材">
         具材を選んでね！
-        <select name="guzai">
+        <select id="guzai">
             <option value="肉盛り">肉</option>
             <option value="フィッシュ">魚</option>
             <option value="たっぷり野菜">野菜</option>
@@ -125,6 +129,7 @@
 
     <div name="結果">
         <p id="kinomi_res">きのみの味</p>
+        <p id="guzai_res">具材</p>
         <p id="k"> 回数表示</p>
         <p id="res">結果表示</p>
 
