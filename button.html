@@ -6,34 +6,117 @@
     <script>
         var magokoro = 0;
 
+        function result() {
+
+            var res = document.getElementById("res");
+            if (magokoro < 10) {
+                res.innerHTML = "いまいち";
+            } else if (magokoro >= 10 && magokoro < 20) {
+                res.innerHTML = "ふつう";
+            } else if (magokoro >= 20 && magokoro < 30) {
+                res.innerHTML = "おいしい";
+            } else if (magokoro >= 30) {
+                res.innerHTML = "めっちゃうまい";
+            }
+            kinomi();
+        }
+
+        function kinomi() {
+            var kinomi_res = document.getElementById("kinomi_res");
+            var oren = document.getElementById("oren").ariaValueNow;
+            var obon = document.getElementById("obon").ariaValueNow;
+            var fira = document.getElementById("fira").ariaValueNow;
+            var nazo = document.getElementById("nazo").ariaValueNow;
+            var max = oren;
+            if (max < obon){
+                max=obon;
+            }
+            if (max < fira){
+                max=fira;
+            }
+            if (max < nazo){
+                max=nazo;
+            }
+            kinomi_res.value=max;
+        }
+
         function m() {
             var k = document.getElementById("k");
             magokoro++;
             k.innerHTML = magokoro;
         }
 
-        function result(){
-            var res = document.getElementById("res");
-            if(magokoro<10){
-                res.innerHTML="いまいち";
-            }else if(magokoro>=10&&magokoro<20){
-                res.innerHTML="ふつう";
-            }else if(magokoro>=20&&magokoro<30){
-                res.innerHTML="おいしい";
-            }else if(magokoro>=30){
-                res.innerHTML="めっちゃうまい";
-            }
-            
-        }
+        
 
     </script>
 </head>
 
 <body>
-    <p id="k"> 回数表示</p>
-    <p id="res">結果表示</p>
-    <input type="button" value="まごころ" onclick="m()">
-    <input type="button" id="result" value="カレーを作る！" onclick="result()">
+    <div name="きのみ">
+        オレンの実(あまい)
+        <select id="oren">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        オボンの実(からい)
+        <select name="obon">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        フィラの実(すっぱい)
+        <select name="fira">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        ナゾの実(にがい)
+        <select name="nazo">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+
+    </div>
+    <br><br>
+    <div name="具材">
+        具材を選んでね！
+        <select name="guzai">
+            <option value="肉盛り">肉</option>
+            <option value="フィッシュ">魚</option>
+            <option value="たっぷり野菜">野菜</option>
+            <option value="ごろごろ豆">豆</option>
+        </select>
+    </div>
+    <br><br>
+
+    <div name="まごころ">
+        <form>
+            <input type="button" value="まごころ" onclick="m()">
+            <input type="button" id="result" value="カレーを作る！" onclick="result()">
+            <!-- <input type="submit" formaction="./curry_result.html"> -->
+        </form>
+    </div>
+
+    <div name="結果">
+        <p id="kinomi_res">きのみの味</p>
+        <p id="k"> 回数表示</p>
+        <p id="res">結果表示</p>
+    
+    </div>
 </body>
 
 </html>
