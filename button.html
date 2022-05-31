@@ -1,1 +1,39 @@
 <!DOCTYPE html>
+<html>
+
+<head>
+    <title>カレー</title>
+    <script>
+        var magokoro = 0;
+
+        function m() {
+            var k = document.getElementById("k");
+            magokoro++;
+            k.innerHTML = magokoro;
+        }
+
+        function result(){
+            var res = document.getElementById("res");
+            if(magokoro<10){
+                res.innerHTML="いまいち";
+            }else if(magokoro>=10&&magokoro<20){
+                res.innerHTML="ふつう";
+            }else if(magokoro>=20&&magokoro<30){
+                res.innerHTML="おいしい";
+            }else if(magokoro>=30){
+                res.innerHTML="めっちゃうまい";
+            }
+            
+        }
+
+    </script>
+</head>
+
+<body>
+    <p id="k"> 回数表示</p>
+    <p id="res">結果表示</p>
+    <input type="button" value="まごころ" onclick="m()">
+    <input type="button" id="result" value="カレーを作る！" onclick="result()">
+</body>
+
+</html>
