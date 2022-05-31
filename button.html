@@ -5,6 +5,12 @@
     <title>カレー</title>
     <script>
         var magokoro = 0;
+        let kinomiData = [
+            ["オレンのみ", "あまい"],
+            ["オボンのみ", "からい"],
+            ["フィラのみ", "しぶい"],
+            ["ナゾのみ", "すっぱい"]
+        ];
 
         function result() {
 
@@ -23,21 +29,27 @@
 
         function kinomi() {
             var kinomi_res = document.getElementById("kinomi_res");
-            var oren = document.getElementById("oren").ariaValueNow;
-            var obon = document.getElementById("obon").ariaValueNow;
-            var fira = document.getElementById("fira").ariaValueNow;
-            var nazo = document.getElementById("nazo").ariaValueNow;
-            var max = oren;
-            if (max < obon){
-                max=obon;
+            var oren = document.getElementById("0");
+            var obon = document.getElementById("1");
+            var fira = document.getElementById("2");
+            var nazo = document.getElementById("3");
+            var max = oren.value;
+            var max_id = oren.id;
+            
+            if (max < obon.value) {
+                max_id = obon.id;
             }
-            if (max < fira){
-                max=fira;
+            if (max < fira.value) {
+                max_id = fira.id;
             }
-            if (max < nazo){
-                max=nazo;
+            if (max < nazo.value) {
+                max_id = nazo.id;
             }
-            kinomi_res.value=max;
+            kinomi_res.innerHTML = kinomiData[max_id][1];
+        }
+
+        function guzai(){
+            
         }
 
         function m() {
@@ -46,7 +58,7 @@
             k.innerHTML = magokoro;
         }
 
-        
+
 
     </script>
 </head>
@@ -54,7 +66,7 @@
 <body>
     <div name="きのみ">
         オレンの実(あまい)
-        <select id="oren">
+        <select id="0">
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -63,7 +75,7 @@
             <option value="5">5</option>
         </select><br>
         オボンの実(からい)
-        <select name="obon">
+        <select id="1">
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -71,8 +83,8 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select><br>
-        フィラの実(すっぱい)
-        <select name="fira">
+        フィラの実(しぶい)
+        <select id="2">
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -80,8 +92,8 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select><br>
-        ナゾの実(にがい)
-        <select name="nazo">
+        ナゾの実(すっぱい)
+        <select id="3">
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -106,7 +118,7 @@
     <div name="まごころ">
         <form>
             <input type="button" value="まごころ" onclick="m()">
-            <input type="button" id="result" value="カレーを作る！" onclick="result()">
+            <input type="button" value="カレーを作る！" onclick="result()">
             <!-- <input type="submit" formaction="./curry_result.html"> -->
         </form>
     </div>
@@ -115,7 +127,7 @@
         <p id="kinomi_res">きのみの味</p>
         <p id="k"> 回数表示</p>
         <p id="res">結果表示</p>
-    
+
     </div>
 </body>
 
